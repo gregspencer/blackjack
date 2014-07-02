@@ -12,15 +12,22 @@ player_hand << deck.pop
 computer_hand << deck.pop
 
 def calculate_total(cards)
-  arr = cards.map {|e| e[1].to_i}
+  arr = cards.map {|e| e[0].to_i}
   total = 0
   arr.each do |value|
-    if value == 0
+    if value == "Ace"
+      if total <= 10
+        total += 11
+      elsif total > 10
+        total += 1
+      end
+    elsif value.to_i == 0
       total += 10
     else
-      total += value
+      total += value.to_i
     end
   end
+  total
 end
 
 puts "Here is your hand:"
@@ -45,4 +52,8 @@ player_hand.each do |card|
   end
 end
 
-
+computer_total = calculate_total(computer_hand)
+player_total = calculate_total(player_hand)
+puts ' '
+puts "Dealer has #{computer_total}"
+puts "You have #{player_total}"
