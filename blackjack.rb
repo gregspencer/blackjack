@@ -12,20 +12,35 @@ player_hand << deck.pop
 computer_hand << deck.pop
 
 def calculate_total(cards)
+<<<<<<< HEAD
   arr = cards.map{|e| e[0]}
   total = 0
   arr.each do |value|
     if value == "Ace"
       total += 11
+=======
+  arr = cards.map {|e| e[0].to_i}
+  total = 0
+  arr.each do |value|
+    if value == "Ace"
+      if total <= 10
+        total += 11
+      elsif total > 10
+        total += 1
+      end
+>>>>>>> 287f80c795a4055c577316f7899d80e35fa78081
     elsif value.to_i == 0
       total += 10
     else
       total += value.to_i
+<<<<<<< HEAD
     end
   end
   arr.select{|n| n == "Ace"}.count.times do
     if total > 21
       total -= 10
+=======
+>>>>>>> 287f80c795a4055c577316f7899d80e35fa78081
     end
   end
   total
@@ -104,6 +119,7 @@ while dealer_total <= 17
   end
 end
 
+<<<<<<< HEAD
 # Compare hands
 
 if dealer_total > player_total
@@ -114,3 +130,10 @@ else
   puts "It's a tie"
 end
 
+=======
+computer_total = calculate_total(computer_hand)
+player_total = calculate_total(player_hand)
+puts ' '
+puts "Dealer has #{computer_total}"
+puts "You have #{player_total}"
+>>>>>>> 287f80c795a4055c577316f7899d80e35fa78081
