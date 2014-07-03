@@ -33,13 +33,13 @@ end
 
 player_total = calculate_total(player_hand)
 dealer_total = calculate_total(computer_hand)
-
+puts ''
 puts "Here is computer hand:"
 computer_hand.each do |card|
   puts "#{card.first} of #{card.last}"
   end
 puts "for a total of #{dealer_total}"
-
+puts ''
 puts "Here is your hand:"
 player_hand.each do |card|
   puts "#{card.first} of #{card.last}"
