@@ -89,7 +89,7 @@ if dealer_total == 21
 end
 
 
-while dealer_total <= 17
+while dealer_total < 17
   new_card = deck.pop
   computer_hand << new_card
   puts "Dealer got card #{new_card.first} of #{new_card.last}"
